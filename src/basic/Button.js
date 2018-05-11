@@ -47,16 +47,7 @@ class Button extends Component {
     const children =
       Platform.OS === "ios"
         ? this.props.children
-        : React.Children.map(
-            this.props.children,
-            child =>
-              child && child.type === Text
-                ? React.cloneElement(child, {
-                    uppercase: variables.btnUppercaseAndroidText,
-                    ...child.props
-                  })
-                : child
-          );
+        : this.props.children
     if (
       Platform.OS === "ios" ||
       Platform.OS === "web" ||
@@ -80,30 +71,30 @@ class Button extends Component {
             let buttonFlex = (this.props.full || this.props.block) ? 1 : buttonStyle.flex;
             return (
               <View style={[{ maxHeight:buttonStyle.height }, buttonStyle, { paddingTop: undefined, paddingBottom: undefined, flex:buttonFlex }]} >
-                <TouchableNativeFeedback
+                <TouchableOpacity
                   ref={c => (this._root = c)}
-                  background={
-                    this.props.androidRippleColor
-                      ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor, true)
-                      : TouchableNativeFeedback.Ripple(variables.androidRippleColor, true)
-                  }
+                  // background={
+                  //   this.props.androidRippleColor
+                  //     ? TouchableNativeFeedback.Ripple(this.props.androidRippleColor, true)
+                  //     : TouchableNativeFeedback.Ripple(variables.androidRippleColor, true)
+                  // }
                   { ...this.prepareRootProps() }
                 >
-                  <View style={[styles.childContainer, { paddingTop: buttonStyle.paddingTop, paddingBottom: buttonStyle.paddingBottom, height: buttonStyle.height,flexGrow:buttonFlex }]}>
-                    {children}
-                  </View>
-                </TouchableNativeFeedback>
+                  // <View style={[styles.childContainer, { paddingTop: buttonStyle.paddingTop, paddingBottom: buttonStyle.paddingBottom, height: buttonStyle.height,flexGrow:buttonFlex }]}>
+                  //   {children}
+                  // </View>
+                </TouchableOpacity>
               </View >
-            );  
+            );
         } else {
             return (
-              <TouchableNativeFeedback
+              <TouchableOpacity
                 ref={c => (this._root = c)}
                 onPress={this.props.onPress}
                 {...this.prepareRootProps()}
               >
                 <View {...this.prepareRootProps()}>{children}</View>
-              </TouchableNativeFeedback>
+              </TouchableOpacity>
             );
         }
     }
