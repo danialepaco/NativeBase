@@ -1,4 +1,4 @@
-Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefined;var _jsxFileName="src/basic/Button.js";var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
+Object.defineProperty(exports,"__esModule",{value:true});exports.Button=undefined;var _extends=Object.assign||function(target){for(var i=1;i<arguments.length;i++){var source=arguments[i];for(var key in source){if(Object.prototype.hasOwnProperty.call(source,key)){target[key]=source[key];}}}return target;};var _jsxFileName="src/basic/Button.js";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||false;descriptor.configurable=true;if("value"in descriptor)descriptor.writable=true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};}();var _react=require("react");var _react2=_interopRequireDefault(_react);
 var _propTypes=require("prop-types");var _propTypes2=_interopRequireDefault(_propTypes);
 var _reactNative=require("react-native");
 
@@ -47,16 +47,7 @@ _platform2.default;
 var children=
 _reactNative.Platform.OS==="ios"?
 this.props.children:
-_react2.default.Children.map(
-this.props.children,
-function(child){return(
-child&&child.type===_Text.Text?
-_react2.default.cloneElement(child,_extends({
-uppercase:variables.btnUppercaseAndroidText},
-child.props)):
-
-child);});
-
+this.props.children;
 if(
 _reactNative.Platform.OS==="ios"||
 _reactNative.Platform.OS==="web"||
@@ -68,7 +59,7 @@ _react2.default.createElement(_reactNative.TouchableOpacity,_extends({},
 this.prepareRootProps(),{
 ref:function ref(c){return _this2._root=c;},
 activeOpacity:
-this.props.activeOpacity>0?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:67}}),
+this.props.activeOpacity>0?this.props.activeOpacity:0.5,__source:{fileName:_jsxFileName,lineNumber:58}}),
 
 
 children));
@@ -79,30 +70,30 @@ if(this.props.rounded){
 var buttonStyle=_extends({},this.prepareRootProps().style);
 var buttonFlex=this.props.full||this.props.block?1:buttonStyle.flex;
 return(
-_react2.default.createElement(_reactNative.View,{style:[{maxHeight:buttonStyle.height},buttonStyle,{paddingTop:undefined,paddingBottom:undefined,flex:buttonFlex}],__source:{fileName:_jsxFileName,lineNumber:82}},
-_react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
-ref:function ref(c){return _this2._root=c;},
-background:
-this.props.androidRippleColor?
-_reactNative.TouchableNativeFeedback.Ripple(this.props.androidRippleColor,true):
-_reactNative.TouchableNativeFeedback.Ripple(variables.androidRippleColor,true)},
+_react2.default.createElement(_reactNative.View,{style:[{maxHeight:buttonStyle.height},buttonStyle,{paddingTop:undefined,paddingBottom:undefined,flex:buttonFlex}],__source:{fileName:_jsxFileName,lineNumber:73}},
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({
+ref:function ref(c){return _this2._root=c;}},
 
-this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:83}}),
 
-_react2.default.createElement(_reactNative.View,{style:[styles.childContainer,{paddingTop:buttonStyle.paddingTop,paddingBottom:buttonStyle.paddingBottom,height:buttonStyle.height,flexGrow:buttonFlex}],__source:{fileName:_jsxFileName,lineNumber:92}},
-children))));
+
+
+
+this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:74}}),"// ",
+
+_react2.default.createElement(_reactNative.View,{style:[styles.childContainer,{paddingTop:buttonStyle.paddingTop,paddingBottom:buttonStyle.paddingBottom,height:buttonStyle.height,flexGrow:buttonFlex}],__source:{fileName:_jsxFileName,lineNumber:83}},"//   ",
+children,"// "))));
 
 
 
 
 }else{
 return(
-_react2.default.createElement(_reactNative.TouchableNativeFeedback,_extends({
+_react2.default.createElement(_reactNative.TouchableOpacity,_extends({
 ref:function ref(c){return _this2._root=c;},
 onPress:this.props.onPress},
-this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:100}}),
+this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:91}}),
 
-_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:105}}),children)));
+_react2.default.createElement(_reactNative.View,_extends({},this.prepareRootProps(),{__source:{fileName:_jsxFileName,lineNumber:96}}),children)));
 
 
 }
