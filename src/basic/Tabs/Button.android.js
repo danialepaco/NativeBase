@@ -4,10 +4,7 @@ const { TouchableOpacity, View } = ReactNative;
 
 const Button = props => {
   return (
-    <TouchableOpacity
-      // delayPressIn={0} // eslint-disable-line new-cap
-      {...props}
-    >
+    <TouchableOpacity activeOpacity={0.6} {...props}>
       {props.children}
     </TouchableOpacity>
   );
